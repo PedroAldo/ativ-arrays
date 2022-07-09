@@ -4,35 +4,245 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
 </head>
 <body>
-    
+    <header>
+		<img src="./images/logo.jpg" alt="Centro Federal de Educação Tecnológica do Rio de Janeiro Celso Suckow da Fonseca - CEFET/RJ">
+		<h1>Centro Federal de Educação Tecnológica do Rio de Janeiro - Celso Suckow da Fonseca</h1>
+		<h3>Campus Nova Friburgo</h3>
+		<h4>Bacharelado em Sistemas de Informação </h4>
+		<h4>Professor Rafael Escalfoni</h4>
+	</header>
+    <main>
+        <ol>
+        <section>
+            <h4>Funções Numéricas</h4>
+            <p>Crie as funções aplicáveis a arrays, de acordo com a Tabela 1.
+                A função sumdeve receber um array numérico como parâmetro e retornar a somade seus elementos. A função sumOdds recebe um array numérico e retorna a soma apenas dos elementos ímpares.
+                A função product recebe um array numérico e retorna o produto de seus elementos.
+            </p>
+                <h6>Digite os números separados por espaço.</h6>
+            <input class="array" type="text" placeholder="Digite os números que deseja somar: (ex: 1 2 3 4 5 6)">
+            <button class="btn1">Executar</button>
+            <ul id="q01-result"></ul>
+        </section>
+        <section>
+            <input class="array2" type="text" placeholder="Digite os números que deseja somar:">
+            <button class="btn2">Executar</button>
+            <ul id="q02-result"></ul>
+        </section>
+        <section>
+            <input class="array3" type="text" placeholder="Digite os números que deseja receber o produto:">
+            <button class="btn3">Executar</button>
+            <ul id="q03-result"></ul>
+        </section>
+    </ol>
+    <ol>
+    <section>
+        <h4>Números Primos</h4>
+        <p>Na matemática um número é considerado primo se ele possuir apenas dois divisores, o número um e ele mesmo.
+            Para ajudar a gerar uma série de n números primos, crie uma função que ao recebero tamanho n retorne a respectiva série de números primos,
+            por exemplo, ao receber o valor 4 o retorno será 2, 3, 5, 7.
+            Contudo, se for recebido dois valores a interpretação será que a série deverá compreender o intervalo desses valores, portanto, os valores 2, 10 resultaram em 2, 3, 5, 7.
+        </p>
+        <input class="array4" type="text" placeholder="Digite a quantidade de números primos a ser retornado: ">
+        <button class="btn4">Executar</button>
+        <ul id="q04-result"></ul>
+        <ul id="q05-result"></ul>
+    </section>
+    </ol>
+    <ol>
+    <section>
+        <h4>Números Romanos</h4>
+        <p>O sistema de numeração romana é uma forma de representação numérica composto por sete letras
+            maiúsculas do alfabeto latino: I, V, X, L, C, D e M.Então  crie  uma  função  para  receber  um  número  decimal  e  o
+            retorne  no  formato romano, por exemplo,
+            ao receber 27 retorne XXVII. Para analisar mais exemplos veja a Tabela 3.
+        </p>
+        <input class="array6" type="text" placeholder="Digite o número que deseja transformar em romano: ">
+        <button class="btn6">Executar</button>
+        <ul id="q06-result"></ul>
+    </section>
+    </ol>
+    <ol>
+    <section>
+        <h4>Saque Mínimo</h4>
+        <p>A ideia do saque mínimo consiste em determinar qual é a quantidade mínima de cédulas que devem ser coletadas para retirar um valor específico.
+            Considerando que um ATM possuia as cédulas de 100, 50, 20, 10, 5 e 2, 
+            logo para se retirar um valor de R$ 1.280,00 usando a quantidade mínima de notas é necessário as seguintes quantias:
+        </p>
+        <input class="array7" type="text" placeholder="Digite a quantidade de dinheiro a ser retirada: ">
+        <button class="btn7">Executar</button>
+        <ul style="margin-top:20px; width: 150px" id="q07-result"></ul>
+    </section>
+    </ol>
+</main>
 </body>
 <script>
-    const sum = [1,2,3,4,5,6].reduce((partialSum, a) => partialSum + a, 0);
-    console.log(sum);
+    // -----------------------------------------------------------------------------------------------------------------------------------------------
+    let btn1 = document.querySelector(".btn1");
+    btn1.addEventListener('click', () => {
+        let test = (document.querySelector(".array").value);
+        let aux = ' ';
+        array = test.split(aux);
+    let total= 0;
+    for(let i=0; i < array.length; i++){
+        total += parseInt(array[i]);
+    }
+    const resp1 = document.querySelector("#q01-result")
+    const liResp1 = `<li>A soma dos números inseridos é: ${total} </li>`
+        resp1.innerHTML = liResp1;
+    })
 
-    test = [1,2,3,4,5,6]
-    let result=[];
+ // ---------------------------------------------------------------------------------------------------------------------------------
+
+    let btn2 = document.querySelector(".btn2");
     const sumOdds = (array) => {
-        for(i=0; i<array.length; i++){
-                    if(array[i] % 2 == 0){
-                    }else {
-                        result[i] = array[i];
-                    }
-        }
-        return  result.reduce((partialSum, a) => partialSum + a, 0);
+        let result = [];
+        let aux = 0;
+    for(i=0; i<array.length; i++){
+                if(array[i] % 2 == 0){
+                }else {
+                    result[aux] = array[i];
+                    aux++;
+                }
     }
-    console.log(sumOdds(test))
+    return result;
+}
+    btn2.addEventListener('click', () => {
+        let test2 = document.querySelector(".array2").value;
+        let array2 = test2.split(' ');
+        array2 = sumOdds(array2)
+        let total2= 0;
+        for(let i=0; i < array2.length; i++){
+        total2 += parseInt(array2[i]);
+    }
+        const resp2 = document.querySelector("#q02-result")
+        const liResp2 = `<li>Dos números inseridos, a soma dos números primos é: ${total2} </li>`
+            resp2.innerHTML = liResp2;
+    })
 
-    let aux = 1;
-    const product = (array) =>{
-            for(i=0; i<array.length; i++){
-                aux *= array[i];
+    // ----------------------------------------------------------------------------------------------------------------------------------------
+    
+
+    let btn3 = document.querySelector(".btn3");
+    btn3.addEventListener('click', () => {
+        let test3 = document.querySelector(".array3").value;
+        let array3 = test3.split(' ');
+        let total3 = 1;
+        for(let i=0; i<array3.length; i++){
+                total3 *= parseInt(array3[i]);
+        }
+        const resp3 = document.querySelector("#q03-result")
+        const liResp3 = `<li>O produto dos elementos é: ${total3} </li>`
+            resp3.innerHTML = liResp3;
+})
+
+
+    // -------------------------------------------------------------------------------------------------------------------------------------
+
+    let btn4 = document.querySelector(".btn4");
+    btn4.addEventListener('click', () => {
+        let test4 = document.querySelector(".array4").value;
+        let test5 = document.querySelector(".array4").value;
+        let array5 = test5.split(',');
+        let aux = [];
+        let aux2 = [];
+        let contador = 0;
+        let contador2 = 0;
+        if (array5[1] != null || array5[1] === ''){
+            for(i=2; i != array5[1]; i++){
+                if (i % 2 === 0 && i != 2 || i % 3 === 0 && i != 3 || i % 5 === 0 && i != 5){
+                    continue;
+                }else if (i >= array5[0]){
+                    aux2[contador2] = i;
+                    contador2++
+                }
+                const resp4 = document.querySelector("#q04-result")
+        const liResp4 = ``
+            resp4.innerHTML = liResp4;
             }
-            return aux;
+            const resp5 = document.querySelector("#q05-result")
+            const liResp5 = `<li>Os números primos do intervalo são: ${aux2} </li>`
+                resp5.innerHTML = liResp5;
+        }else if (test4 != ''){
+            const resp5 = document.querySelector("#q05-result")
+            const liResp5 = ``
+                resp5.innerHTML = liResp5;
+                for(i=2; aux.length != parseInt(test4); i++) {
+                    if (i % 2 === 0 && i != 2 || i % 3 === 0 && i != 3 || i % 5 === 0 && i != 5){
+                        continue;
+                    }else{
+                        aux[contador] = i;
+                        contador++
+                    }
+                }
+                const resp4 = document.querySelector("#q04-result")
+                const liResp4 = `<li>Os números primos são: ${aux} </li>`
+                    resp4.innerHTML = liResp4;
+        }
+    })
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------
+    
+
+    function romano(num) {
+    let m = ["", "M", "MM", "MMM"];
+    let c = ["", "C", "CC", "CCC", "CD", "D",
+                        "DC", "DCC", "DCCC", "CM"];
+    let x = ["", "X", "XX", "XXX", "XL", "L",
+                        "LX", "LXX", "LXXX", "XC"];
+    let i = ["", "I", "II", "III", "IV", "V",
+                        "VI", "VII", "VIII", "IX"];
+         
+    let aux1 = m[Math.floor(num/1000)];
+    let aux2 = c[Math.floor((num%1000)/100)];
+    let aux3 = x[Math.floor((num%100)/10)];
+    let aux4 = i[num%10];
+         
+    let total = aux1 + aux2 + aux3 + aux4;
+         
+    return total;
+}
+    let btn6 = document.querySelector(".btn6");
+    btn6.addEventListener('click', () => {
+    let test6 = document.querySelector(".array6").value;
+    let total = romano(test6)
+    const resp6 = document.querySelector("#q06-result")
+    const liResp6 = `<li>Os números primos são: ${total} </li>`
+    resp6.innerHTML = liResp6;
+})
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------
+
+    resp7 = document.querySelector("#q07-result")
+
+    function notaQtd(notas,entrada)
+{   for(var i = 0; i < notas.length; i++){
+    if(entrada >= notas[i]){
+        var notaM = notas[i];
+        }
     }
-    console.log(product(test));
+    var numN = entrada / notaM;
+    const conteudo = document.createTextNode((`${Math.floor(numN)} notas de : ${notaM} ------------------------------ `))
+    var div1 = document.createElement('div')
+    resp7.appendChild(conteudo)
+    resto = parseFloat(entrada % notaM);
+    if((resto != 0) && (resto > 1)){
+        notaQtd(notas,resto);
+    }else if(resto != 0){
+        const conteudo2 = document.createTextNode(`Sobrou : ${resto} ------------------------------ `);
+        resp7.appendChild(conteudo2)
+    }
+}
+let btn7 = document.querySelector(".btn7");
+btn7.addEventListener('click', () => {
+        let notas = [2,5,10,20,50,100];
+        let test7 = document.querySelector(".array7").value;
+        notaQtd(notas,test7)
+})
+        
 </script>
 </html>
