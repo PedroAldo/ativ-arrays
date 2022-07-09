@@ -52,3 +52,6 @@ main input {
     outline: none;
     border: 1px solid;
 }
+ul {
+    margin-top:20px;
+}

@@ -75,7 +75,7 @@
         </p>
         <input class="array7" type="text" placeholder="Digite a quantidade de dinheiro a ser retirada: ">
         <button class="btn7">Executar</button>
-        <ul style="margin-top:20px; width: 150px" id="q07-result"></ul>
+        <ul style="width: 150px" id="q07-result"></ul>
     </section>
     </ol>
 </main>
@@ -219,8 +219,8 @@
 
     resp7 = document.querySelector("#q07-result")
 
-    function notaQtd(notas,entrada)
-{   for(var i = 0; i < notas.length; i++){
+    function notaQtd(notas,entrada){
+    for(var i = 0; i < notas.length; i++){
     if(entrada >= notas[i]){
         var notaM = notas[i];
         }
@@ -241,6 +241,7 @@ let btn7 = document.querySelector(".btn7");
 btn7.addEventListener('click', () => {
         let notas = [2,5,10,20,50,100];
         let test7 = document.querySelector(".array7").value;
+        resp7.textContent = '';
         notaQtd(notas,test7)
 })
         
